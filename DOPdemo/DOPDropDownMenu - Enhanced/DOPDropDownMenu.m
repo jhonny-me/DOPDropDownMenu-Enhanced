@@ -292,6 +292,14 @@
 }
 
 #pragma mark - init method
+// xib加载
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
+    if (self = [super initWithCoder:aDecoder]) {
+        self = [self initWithOrigin:self.frame.origin andHeight:self.frame.size.height];
+    }
+    return self;
+}
+
 - (instancetype)initWithOrigin:(CGPoint)origin andHeight:(CGFloat)height {
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     self = [self initWithFrame:CGRectMake(origin.x, origin.y, screenSize.width, height)];
